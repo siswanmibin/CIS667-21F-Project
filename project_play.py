@@ -28,6 +28,8 @@ def get_user_action(dotsboxes):
 
 if __name__ == "__main__":
 	players = ['Human Player', 'Baseline AI', 'Tree-based AI']
+	#ply = [[1, 2], [0, 2], [0, 1]]
+	#ply_d = [['Baseline AI', 'Tree-based AI'], ['Human Player', 'Tree-based AI'], ['Human Player', 'Baseline AI']]
 
 	ipt = 'Enter a number from (2, 3, 4, 5, 6) for size: '
 	print(' Dots are numbered as following:\n  0    1    2    3\n  4    5    6    7\n  8    9   10   11\n 12   13   14   15\n Lines of boxes are numbered as following:\n  o  0 o  1 o  2 o\n 12   13   14   15\n  o  3 o  4 o  5 o\n 16   17   18   19\n  o  6 o  7 o  8 o\n 20   21   22   23\n  o  9 o 10 o 11 o\n\n')
@@ -40,7 +42,7 @@ if __name__ == "__main__":
 	while(player1 not in [0, 1, 2]):
 		player1 = int(input(ipt1))
 
-	ipt2 = 'Input 0, 1, 2 for Player A.\n 0 = Human Player\n 1 = Baseline AI\n 2 = Tree-based AI\n'
+	ipt2 = f'Input 0, 1, 2 for Player A.\n 0 = Human Player\n 1 = Baseline AI\n 2 = Tree-based AI\n'
 	player2 = -1
 	while(player2 not in [0, 1, 2]):
 		player2 = int(input(ipt2))
