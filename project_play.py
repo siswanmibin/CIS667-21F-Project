@@ -40,7 +40,7 @@ if __name__ == "__main__":
 	while(player1 not in [0, 1, 2]):
 		player1 = int(input(ipt1))
 
-	ipt2 = f'Input 0, 1, 2 for Player A.\n 0 = Human Player\n 1 = Baseline AI\n 2 = Tree-based AI\n'
+	ipt2 = 'Input 0, 1, 2 for Player A.\n 0 = Human Player\n 1 = Baseline AI\n 2 = Tree-based AI\n'
 	player2 = -1
 	while(player2 not in [0, 1, 2]):
 		player2 = int(input(ipt2))
