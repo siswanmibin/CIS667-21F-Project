@@ -8,6 +8,8 @@ def evalutor_2(DB):
 	return DB.score
 
 def baseai(DB):
+	if DB.lines_to_score() <= 1:
+		return DB.valid_actions()
 	sa = DB.score_aeras()
 	vas = DB.valid_actions()
 	Pas = set()
@@ -35,7 +37,7 @@ def minimaxAB(DB, depth=5, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, nod
 	if depth == 0:
 		return None, evaluator(DB) if AI == 0 else evaluator(DB) * (-1)
 
-	children = [perform_action(DB, n) for n in DB.valid_actions()]
+	children = [perform_action(DB, n) for n in baseai(DB)]
 	results = [minimaxAB(c, depth-1, a, b, AI=AI, evaluator=evaluator, node=node) for c in children]
 
 	if DB.player == AI:

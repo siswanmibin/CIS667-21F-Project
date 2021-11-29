@@ -24,7 +24,6 @@ class Dots_Boxes:
 		self.score = 0
 		self.score0 = 0
 		self.score1 = 0
-		self.change = 0
 		self.scores = ['  '] * ((SIZE - 1) ** 2)
 
 	def valid_actions(self):
@@ -90,7 +89,6 @@ class Dots_Boxes:
 				else:
 					self.score0 += 1
 			self.lines[n] = 1
-			self.change = 1
 		else:
 			self.player = 1 - self.player
 			self.lines[n] = 1
