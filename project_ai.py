@@ -44,17 +44,6 @@ def minimaxAB(DB, depth=5, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, nod
 	return children[action], utilities[action]
 
 if __name__ == "__main__":
-	#a = Dots_Boxes(4)
-	#b = minimaxAB(a, 4)
-	#c, d = b
-	#c.show()
-	#a.show()
-	#while(not a.end_game()):
-	#	if a.player == 1:
-	#		a, _ = minimaxAB(a, 3, AI=a.player)
-	#	else:
-	#		a = perform_action(a, np.random.choice(a.valid_actions()))
-	#	a.show()
 	import pandas as pd
 
 	nodes = np.array([[1] * 100] * 5)
@@ -69,7 +58,6 @@ if __name__ == "__main__":
 					a = perform_action(a, action)
 				else:
 					a, _ = minimaxAB(a, 3, AI=a.player, node='nodes[i-2, j]')
-			#nodes[i-2, j] = node
 			net_s[i-2, j] = a.score * pow(-1, j % 2 + 1)
 
 	nd = pd.DataFrame(nodes)
