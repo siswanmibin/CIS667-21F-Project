@@ -4,7 +4,7 @@ from project_state import *
 def evaluator_1(DB):
 	return DB.score
 
-def evalutor_2(DB):
+def evaluator_2(DB):
 	return DB.score
 
 def baseai(DB):
