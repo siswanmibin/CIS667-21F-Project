@@ -75,7 +75,7 @@ class Dots_Boxes:
 		else:
 			return []
 
-	def lines_to_score(self): # if add any line can get score
+	def lines_to_score(self): # if adding any line can get score
 		for n in self.valid_actions():
 			if self.is_bonus_action_of(n):
 				return 1
