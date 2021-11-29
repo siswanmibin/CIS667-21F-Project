@@ -70,7 +70,6 @@ if __name__ == "__main__":
 					a = perform_action(a, action)
 				else:
 					a, _ = minimaxAB(a, 3, AI=a.player, node='nodes[i-2, j]')
-			#nodes[i-2, j] = node
 			net_s[i-2, j] = a.score * pow(-1, j % 2 + 1)
 
 	nd = pd.DataFrame(nodes)
