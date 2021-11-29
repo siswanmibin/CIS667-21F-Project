@@ -7,6 +7,22 @@ def evaluator_1(DB):
 def evalutor_2(DB):
 	return DB.score
 
+def baseai(DB):
+	sa = DB.score_aeras()
+	vas = DB.valid_actions()
+	Pas = set()
+	pas = set()
+	for i, j in sa:
+		if sum(j) ==3:
+			Pas = Pas | set(i)
+		if sum(j) <= 1:
+			pas = pas | set(i)
+	if len(Pas & set(vas)) > 0:
+		return list(Pas & set(vas))
+	elif len(pas & set(vas)) > 0:
+		return list(pas & set(vas))
+	return vas
+
 def minimaxAB(DB, depth=5, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, node=False):
 	if DB.lines_to_score() <= 1:
 		return perform_action(DB, np.random.choice(DB.valid_actions())), 0
@@ -45,17 +61,6 @@ def minimaxAB(DB, depth=5, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, nod
 	return children[action], utilities[action]
 
 if __name__ == "__main__":
-	#a = Dots_Boxes(4)
-	#b = minimaxAB(a, 4)
-	#c, d = b
-	#c.show()
-	#a.show()
-	#while(not a.end_game()):
-	#	if a.player == 1:
-	#		a, _ = minimaxAB(a, 3, AI=a.player)
-	#	else:
-	#		a = perform_action(a, np.random.choice(a.valid_actions()))
-	#	a.show()
 	import pandas as pd
 
 	nodes = np.array([[1] * 100] * 5)
@@ -66,7 +71,7 @@ if __name__ == "__main__":
 			a = Dots_Boxes(i)
 			while not a.end_game():
 				if a.player == j % 2:
-					action = np.random.choice(a.valid_actions())
+					action = np.random.choice(baseai(a))
 					a = perform_action(a, action)
 				else:
 					a, _ = minimaxAB(a, 3, AI=a.player, node='nodes[i-2, j]')

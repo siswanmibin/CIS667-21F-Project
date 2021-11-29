@@ -61,7 +61,7 @@ if __name__ == "__main__":
 				a = perform_action(a, action)
 			elif player1 == 1:
 				input(ctn)
-				action = np.random.choice(a.valid_actions())
+				action = np.random.choice(baseai(a))
 				a = perform_action(a, action)
 			else:
 				input(ctn)
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 				a = perform_action(a, action)
 			elif player2 == 1:
 				input(ctn)
-				action = np.random.choice(a.valid_actions())
+				action = np.random.choice(baseai(a))
 				a = perform_action(a, action)
 			else:
 				input(ctn)
