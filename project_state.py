@@ -64,7 +64,7 @@ class Dots_Boxes:
 	def new_scores(self, i, p):
 		self.scores[i] = '-1' if p else '+1'
 
-	def is_bonus_action_of(self, n): # if add line n can get score
+	def is_bonus_action_of(self, n): # if adding line n can get score
 		sa = self.score_aeras()
 		aeras = []
 		for i in range(len(sa)):
