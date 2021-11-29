@@ -70,10 +70,8 @@ class Dots_Boxes:
 		for i in range(len(sa)):
 			if n in sa[i][0] and sum(sa[i][1]) == 3:
 				aeras.append(i)
-		if aeras:
-			return aeras
-		else:
-			return []
+		return aeras
+
 
 	def lines_to_score(self): # if adding any line can get score
 		for n in self.valid_actions():
