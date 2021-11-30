@@ -2,7 +2,12 @@ import numpy as np
 from project_state import *
 
 def evaluator_1(DB):
-	return DB.score
+	sa = DB.score_aeras()
+	ps = 0
+	for i, j in sa:
+		if sum(j) == 3:
+			ps += 1
+	return DB.score + ps * (-1) ** DB.player
 
 def evaluator_2(DB):
 	return DB.score
@@ -25,7 +30,7 @@ def baseai(DB):
 		return list(pas & set(vas))
 	return vas
 
-def minimaxAB(DB, depth=5, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, node=False):
+def minimaxAB(DB, depth=4, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, node=False):
 	if DB.lines_to_score() <= 1:
 		return perform_action(DB, np.random.choice(DB.valid_actions())), 0
 
@@ -37,7 +42,7 @@ def minimaxAB(DB, depth=5, a=-np.inf, b=np.inf, AI=0, evaluator=evaluator_1, nod
 	if depth == 0:
 		return None, evaluator(DB) if AI == 0 else evaluator(DB) * (-1)
 
-	children = [perform_action(DB, n) for n in baseai(DB)]
+	children = [perform_action(DB, n) for n in DB.valid_actions()]
 	results = [minimaxAB(c, depth-1, a, b, AI=AI, evaluator=evaluator, node=node) for c in children]
 
 	if DB.player == AI:
@@ -69,6 +74,7 @@ if __name__ == "__main__":
 	net_s = np.array([[0] * 100] * 5)
 
 	for i in [2, 3, 4, 5, 6]:
+		md = 3 if i >= 5 else 4
 		for j in range(100):
 			a = Dots_Boxes(i)
 			while not a.end_game():
@@ -76,11 +82,12 @@ if __name__ == "__main__":
 					action = np.random.choice(baseai(a))
 					a = perform_action(a, action)
 				else:
-					a, _ = minimaxAB(a, 3, AI=a.player, node='nodes[i-2, j]')
+					a, _ = minimaxAB(a, md, AI=a.player, node='nodes[i-2, j]')
 			net_s[i-2, j] = a.score * pow(-1, j % 2 + 1)
 
 	nd = pd.DataFrame(nodes)
 	ns = pd.DataFrame(net_s)
+
 
 	writer = pd.ExcelWriter('simulation.xlsx')
 	nd.to_excel(writer, 'NODES')
