@@ -73,10 +73,14 @@ class Dots_Boxes:
 
 	def lines_to_score(self): # max lines for all score aeras
 		sa = self.score_aeras()
-		sums = []
+		rtmax = 0
 		for i in range(len(sa)):
-			sums.append(sum(sa[i][1]))
-		return max(sums)
+			s = sum(sa[i][1])
+			if s == 3:
+				return 3
+			elif s <= 2:
+				rtmax = max(rtmax, s)
+		return rtmax
 
 	def add_line(self, n):
 		if len(self.is_bonus_action_of(n)) > 0:
