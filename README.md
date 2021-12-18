@@ -9,7 +9,7 @@ The above 2 files are required to run [project_NN](project_NN.py) and [project_p
 [project_NN](project_NN.py) contains neural network training and tree+NN AI testing.  
 [project_play_NN](project_play_NN.py) contains interactive domain program (adding neural network AI).  
 
-Dependencies required: numpy, time, copy, pandas.  
+Dependencies required: numpy, time, copy, pandas, pytorch.  
 
 To run the interactive domain program: Run [project_play](project_play.py).  
 			1) Enter a number to choose a size.  
