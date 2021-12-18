@@ -5,7 +5,7 @@
 [project_play](project_play.py) contains interactive domain program.  
 [project_data](project_data.py) contains programs to generate training data for neural network.  
 Game stats and utilities saved in [samples](samples.xlsx) and [evaluate](evaluate.xlsx) respectively.  
-The above 2 files are required to run project_NN.py and project_play_NN.py.    
+The above 2 files are required to run [project_NN](project_NN.py) and [project_play_NN](project_play_NN.py).    
 [project_NN](project_NN.py) contains neural network training and tree+NN AI testing.  
 [project_play_NN](project_play_NN.py) contains interactive domain program (adding neural network AI).  
 
