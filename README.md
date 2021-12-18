@@ -3,6 +3,7 @@
 [project_state](project_state.py) contains the domain implementation of Dots and Boxes.  
 [project_ai](project_ai.py) contains the tree-based AI while NN not applied for a better evaluator function.  
 [project_play](project_play.py) contains interactive domain program.
+[project_play_NN](project_play_NN.py) contains interactive domain program (adding neural network AI).
 
 Dependencies required: numpy, time, copy, pandas.  
 
