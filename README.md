@@ -3,8 +3,8 @@
 [project_state](project_state.py) contains the domain implementation of Dots and Boxes.  
 [project_ai](project_ai.py) contains the tree-based AI while NN not applied for a better evaluator function.  
 [project_play](project_play.py) contains interactive domain program.  
-[project_data](project_data.py) contains programs to generate training data for neural network. 
-Game stats and utilities saved in respectively. The above 2 files are required to run project_NN.py and project_play_NN.py.    
+[project_data](project_data.py) contains programs to generate training data for neural network.  
+Game stats and utilities saved in [samples](samples.xlsx) and [evaluate](evaluate.xlsx) respectively. The above 2 files are required to run project_NN.py and project_play_NN.py.    
 [project_NN](project_NN.py) contains neural network training and tree+NN AI testing.  
 [project_play_NN](project_play_NN.py) contains interactive domain program (adding neural network AI).  
 
